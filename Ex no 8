@@ -1,0 +1,67 @@
+1)
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class RadioButtonGUI {
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("Gender Selection");
+        frame.setSize(300,150);
+        frame.setLayout(new FlowLayout());
+
+        JRadioButton male = new JRadioButton("Male");
+        JRadioButton female = new JRadioButton("Female");
+
+        ButtonGroup group = new ButtonGroup();
+        group.add(male);
+        group.add(female);
+
+        JButton submit = new JButton("Submit");
+        JLabel result = new JLabel("");
+
+        submit.addActionListener(e -> {
+            if (male.isSelected())
+                result.setText("Selected: Male");
+            else if (female.isSelected())
+                result.setText("Selected: Female");
+            else
+                result.setText("Select Gender");
+        });
+
+        frame.add(male);
+        frame.add(female);
+        frame.add(submit);
+        frame.add(result);
+
+        frame.setVisible(true);
+    }
+}
+2)
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class ReverseNumberGUI {
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("Reverse Number");
+        frame.setSize(300,150);
+        frame.setLayout(new FlowLayout());
+
+        JTextField input = new JTextField(10);
+        JButton btn = new JButton("Reverse");
+        JLabel result = new JLabel("Result");
+
+        btn.addActionListener(e -> {
+            String num = input.getText();
+            String rev = new StringBuilder(num).reverse().toString();
+            result.setText("Result: " + rev);
+        });
+
+        frame.add(new JLabel("Enter Number:"));
+        frame.add(input);
+        frame.add(btn);
+        frame.add(result);
+
+        frame.setVisible(true);
+    }
+}
